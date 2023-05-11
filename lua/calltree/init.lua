@@ -34,14 +34,18 @@ function M.TreeRender(nodeList)
       prepare_node = function(node)
         local line = NuiLine()
 
-        line:append(string.rep("  ", node:get_depth() - 1))
-
-        if node:has_children() then
-          line:append(node:is_expanded() and " " or " ", "SpecialChar")
-        else
-          line:append("  ")
+        line:append(string.rep(" ", 4))
+        if node:get_depth() > 1 then
+            line:append(string.rep(" ", (node:get_depth() - 1)*2))
+            line:append("󱞽 ", "SpecialChar")
         end
         line:append(node.text)
+        if node:has_children() then
+          line:append(node:is_expanded() and " " or " ", "SpecialChar")
+        else
+          line:append("")
+        end
+
         return line
       end,
     })

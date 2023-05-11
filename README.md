@@ -2,8 +2,7 @@
 
 ## demo
 ### incoming call
-![incoming](img/incoming.png)
-
+![incoming](img/incom.png)
 ### outing call
 ![outing](img/outing.png)
 
@@ -20,4 +19,8 @@ for packer
 require('calltree').setup({})
 ```
 ### use it
-use `IncomingTree` and `OutingTree` command
+- `IncomingTree` 被调用路径
+- `OutingTree` 调用路径
+
+- `h` 折叠 
+- `l` 展开 
