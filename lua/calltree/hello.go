@@ -1,17 +1,20 @@
 package main
 
-import "fmt"
-
 func main() {
 	b()
 }
 
 func b() {
 	c()
+	c1()
 
 }
 
 func c() {
-	fmt.Println("hello")
+	print("dog")
+
+}
+func c1() {
+	print("dog")
 
 }

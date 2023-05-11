@@ -4,7 +4,7 @@
 ### incoming call
 ![incoming](img/incom.png)
 ### outing call
-![outing](img/outing.png)
+![outing](img/out.png)
 
 ## usage
 

@@ -1,8 +1,10 @@
 local M = {}
 local lsp = require("calltree.lsp")
 local trees = require("calltree.tree")
+local call_direction = "from"
 
 function M.DisplayNodes(direction)
+    call_direction = direction
     local nodeList = lsp.GetLspNodeList(direction)
     local treeNode = trees.BuildTree(nodeList)
     M.TreeRender(treeNode)
@@ -37,7 +39,11 @@ function M.TreeRender(nodeList)
         line:append(string.rep(" ", 4))
         if node:get_depth() > 1 then
             line:append(string.rep(" ", (node:get_depth() - 1)*2))
-            line:append("󱞽 ", "SpecialChar")
+            if call_direction == "from" then
+                line:append("󱞽 ", "SpecialChar")
+            else
+                line:append("󱞩 ", "SpecialChar")
+            end
         end
         line:append(node.text)
         if node:has_children() then
